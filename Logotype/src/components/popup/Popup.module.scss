@@ -1,0 +1,40 @@
+@use "../../styles/global.scss" as *;
+
+.popupContainer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 30%);
+  backdrop-filter: blur(1px);
+  z-index: 20;
+
+  &__popup {
+    flex: 0 1 50%;
+    max-width: 60rem;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    z-index: 40;
+
+    @include respond(tab) {
+      flex: 0 1 80%;
+    }
+
+    & > * {
+      padding: 1rem;
+    }
+
+    & button {
+      display: block;
+      margin-left: auto;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+  }
+}

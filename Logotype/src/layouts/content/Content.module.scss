@@ -1,0 +1,11 @@
+@use "../../styles/global.scss" as *;
+
+.content {
+  max-width: var(--width-large);
+  margin: 0 auto;
+  padding: 3rem 0 5rem;
+
+  @include respond(phone) {
+    padding: 0 1.25rem 4rem;
+  }
+}

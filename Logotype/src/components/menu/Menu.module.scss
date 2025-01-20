@@ -1,0 +1,103 @@
+@use "../../styles/global.scss" as *;
+
+.container {
+  @include respond(tab) {
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    transform: translateX(-100%);
+    opacity: 0;
+    & {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      z-index: 1;
+    }
+    &__overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(190, 190, 190, 0.3);
+      backdrop-filter: blur(1px);
+      z-index: 1;
+    }
+  }
+}
+.showMobileMenu {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.menuContainer {
+  &__mobile {
+    display: none;
+
+    img {
+      width: 95%;
+    }
+  }
+  @include respond(tab) {
+    height: 100dvh;
+    width: 85%;
+    position: fixed;
+    top: 0;
+    border-right: var(--border-line-light);
+    background-color: #ffffff;
+    position: relative;
+    z-index: 2;
+
+    &__mobile {
+      display: flex;
+      justify-content: space-between;
+      opacity: 1;
+      visibility: visible;
+      padding: 2rem 1.25rem 1.4rem 1.25rem;
+      border-bottom: var(--border-line-light);
+
+      &__close {
+        width: 1.8rem;
+        height: 1.8rem;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+          width: 1.7rem;
+          height: 4px;
+          border-radius: 5px;
+          background-color: #000000;
+          display: inline-block;
+        }
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          right: 1.25rem;
+          top: 2.6rem;
+          transition: all 0.2s;
+        }
+        &::before {
+          transform: rotate(135deg);
+        }
+        &::after {
+          transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding: 1rem 0;
+
+    @include respond(tab) {
+      padding: 1rem 1.25rem;
+      border-bottom: none;
+      flex-direction: column;
+    }
+  }
+}

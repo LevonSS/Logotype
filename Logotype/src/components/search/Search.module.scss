@@ -1,0 +1,51 @@
+@use "../../styles/global.scss" as *;
+
+.search {
+  position: absolute;
+  right: 0;
+  width: 40%;
+  align-items: center;
+  justify-content: end;
+
+  @include respond(tab) {
+    width: 50%;
+  }
+
+  @include respond(phone) {
+    flex: 0 1 25%;
+  }
+
+  &__button {
+    width: 1.125rem;
+    height: 1.125rem;
+    background-image: url("../../assets/images/B.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    backface-visibility: hidden;
+    cursor: pointer;
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+  &__text {
+    flex: 0 1 85%;
+    opacity: 0;
+    visibility: hidden;
+    border: none;
+    border-bottom: 1px solid #969696;
+    outline: none;
+    padding: 0.3rem 1rem;
+    box-sizing: border-box;
+    transition: all 0.2s;
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}

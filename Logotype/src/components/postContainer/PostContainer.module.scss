@@ -1,0 +1,20 @@
+@use "../../styles/global.scss" as *;
+
+.postContianer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem 2.5rem;
+
+  @include respond(laptop) {
+    justify-content: space-evenly;
+    gap: 3rem 0;
+  }
+
+  @include respond(tab) {
+    gap: 2rem 0;
+  }
+
+  @include respond(phone) {
+    justify-content: center;
+  }
+}
